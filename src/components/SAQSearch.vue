@@ -7,9 +7,15 @@
         placeholder="Search"
         aria-label="Search"
         aria-describedby="button-addon2"
+        v-model="search"
       >
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+          v-on:click="onSearch"
+        >
           <i class="fas fa-search"></i>
         </button>
       </div>
@@ -22,7 +28,12 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SAQSearch extends Vue {
-  // @Prop() private msg!: string;
+
+  @Prop() private search: string = '';
+
+  public onSearch(): void {
+    console.log(this.search);
+  }
 }
 </script>
 
